@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">FragmentTrain</string>
+    <string name="fragment_A">A</string>
+    <string name="fragment_B">B</string>
+    <string name="fragment_C">C</string>
+    <string name="fragment_D">DA</string>
+    <string name="fragment_E">E</string>
+    <string name="fragment_F">F</string>
+    <string name="menu_1">1</string>
+    <string name="menu_2">2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
