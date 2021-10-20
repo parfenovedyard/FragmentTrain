@@ -8,6 +8,7 @@
     <fragment
         android:id="@+id/frag_a"
         android:name="com.example.fragmenttrain.ui.menu1.FragmentA"
+        android:label="Fragment A"
         tools:layout="@layout/fragment_a" >
         <action
             android:id="@+id/action_frag_a_to_frag_b"
@@ -22,6 +23,7 @@
     <fragment
         android:id="@+id/frag_b"
         android:name="com.example.fragmenttrain.ui.menu1.FragmentB"
+        android:label="Fragment B"
         tools:layout="@layout/fragment_b">
         <action
             android:id="@+id/action_frag_b_to_frag_c"
@@ -36,11 +38,13 @@
     <fragment
         android:id="@+id/frag_c"
         android:name="com.example.fragmenttrain.ui.menu1.FragmentC"
+        android:label="Fragment C"
         tools:layout="@layout/fragment_c"/>
 
     <fragment
         android:id="@+id/frag_d"
         android:name="com.example.fragmenttrain.ui.menu2.FragmentD"
+        android:label="Fragment D"
         tools:layout="@layout/fragment_d" >
         <action
             android:id="@+id/action_frag_d_to_frag_e"
@@ -55,6 +59,7 @@
     <fragment
         android:id="@+id/frag_e"
         android:name="com.example.fragmenttrain.ui.menu2.FragmentE"
+        android:label="Fragment E"
         tools:layout="@layout/fragment_e" >
         <action
             android:id="@+id/action_frag_e_to_frag_f"
@@ -69,6 +74,7 @@
     <fragment
         android:id="@+id/frag_f"
         android:name="com.example.fragmenttrain.ui.menu2.FragmentF"
+        android:label="Fragment F"
         tools:layout="@layout/fragment_f" />
 
 </navigation>
