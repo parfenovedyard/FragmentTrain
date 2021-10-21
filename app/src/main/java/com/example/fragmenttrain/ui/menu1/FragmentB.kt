@@ -14,17 +14,6 @@ import com.example.fragmenttrain.databinding.FragmentBBinding
 class FragmentB : Fragment(R.layout.fragment_b) {
 
     private val binding by viewBinding(FragmentBBinding::bind)
-    private var text = ""
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        text = arguments?.getString("text").toString()
-        Log.e("ups", text)
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -32,13 +21,19 @@ class FragmentB : Fragment(R.layout.fragment_b) {
 
 
         binding.textFromFragA.text =
-            "Text from fragment A is: $text"
+            "Text from fragment A is: ${arguments?.get("text")}"
 
         binding.buttonB.setOnClickListener {
             val text = binding.editTextB.text.toString()
+            val bundle = Bundle()
+            bundle.putString("text", text)
+
+            val fragC = FragmentC()
+            fragC.arguments = bundle
+
             parentFragmentManager
                 .beginTransaction()
-                .replace(R.id.fragment_container, FragmentC())
+                .replace(R.id.fragment_container, fragC)
                 .addToBackStack(null)
                 .commit()
         }

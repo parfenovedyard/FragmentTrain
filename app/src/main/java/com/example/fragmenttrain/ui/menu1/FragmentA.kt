@@ -22,12 +22,7 @@ class FragmentA : Fragment(R.layout.fragment_a) {
             bundle.putString("text", text)
 
             val fragB = FragmentB()
-            fragB.arguments?.putString("text", text)
-
-            val log = fragB.arguments?.getString("text")
-            if (log != null) {
-                Log.e("ups", log)
-            }
+            fragB.arguments = bundle
 
             parentFragmentManager
                 .beginTransaction()
