@@ -11,19 +11,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fragment C"
-        app:layout_constraintBottom_toTopOf="@+id/text_from_frag_b"
+        app:layout_constraintBottom_toTopOf="@id/button_c_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/text_from_frag_b"
+    <Button
+        android:id="@+id/button_c_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Text from Fragment B is:"
+        android:layout_marginBottom="109dp"
+        android:text="Set Text"
+        app:layout_constraintBottom_toTopOf="@+id/tv_text_c"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_frag_c"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_frag_c" />
+
+    <TextView
+        android:id="@+id/tv_text_c"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_c_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
