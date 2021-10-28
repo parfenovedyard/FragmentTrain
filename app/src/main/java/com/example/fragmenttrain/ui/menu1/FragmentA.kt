@@ -1,7 +1,6 @@
 package com.example.fragmenttrain.ui.menu1
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -12,25 +11,24 @@ class FragmentA : Fragment(R.layout.fragment_a) {
 
     private val binding by viewBinding(FragmentABinding::bind)
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonA.setOnClickListener {
+        binding.buttonAText.setOnClickListener{
             val text = binding.editTextA.text.toString()
             val bundle = Bundle()
             bundle.putString("text", text)
+            val frag = FragmentA()
+            frag.arguments = bundle
+            binding.tvTextA.text = text
+        }
 
-            val fragB = FragmentB()
-            fragB.arguments = bundle
-
+        binding.buttonA.setOnClickListener {
             parentFragmentManager
                 .beginTransaction()
-                .replace(R.id.fragment_container, fragB)
+                .replace(R.id.fragment_container, FragmentB())
                 .addToBackStack(null)
                 .commit()
         }
     }
-
-
 }

@@ -15,13 +15,14 @@ class FragmentB : Fragment(R.layout.fragment_b) {
 
     private val binding by viewBinding(FragmentBBinding::bind)
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
 
-        binding.textFromFragA.text =
-            "Text from fragment A is: ${arguments?.get("text")}"
+        //binding.textFromFragA.text =
+          //  "Text from fragment A is: ${arguments?.get("text")}"
 
         binding.buttonB.setOnClickListener {
             val text = binding.editTextB.text.toString()

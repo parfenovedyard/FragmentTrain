@@ -14,6 +14,6 @@ class FragmentC : Fragment(R.layout.fragment_c) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.textFromFragB.text = "Text from fragment B is: ${arguments?.get("text")}"
+        //binding.textFromFragB.text = "Text from fragment B is: ${arguments?.get("text")}"
     }
 }
