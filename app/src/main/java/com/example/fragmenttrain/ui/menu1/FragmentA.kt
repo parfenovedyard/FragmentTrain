@@ -10,16 +10,22 @@ import com.example.fragmenttrain.databinding.FragmentABinding
 class FragmentA : Fragment(R.layout.fragment_a) {
 
     private val binding by viewBinding(FragmentABinding::bind)
+    private var text = ""
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (savedInstanceState != null) {
+            text = savedInstanceState.getString("text").toString()
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.tvTextA.text = text
+
         binding.buttonAText.setOnClickListener{
-            val text = binding.editTextA.text.toString()
-            val bundle = Bundle()
-            bundle.putString("text", text)
-            val frag = FragmentA()
-            frag.arguments = bundle
+            text = binding.editTextA.text.toString()
             binding.tvTextA.text = text
         }
 
@@ -30,5 +36,10 @@ class FragmentA : Fragment(R.layout.fragment_a) {
                 .addToBackStack(null)
                 .commit()
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("text", text)
     }
 }

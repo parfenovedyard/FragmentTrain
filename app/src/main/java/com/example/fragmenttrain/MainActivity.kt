@@ -1,15 +1,12 @@
 package com.example.fragmenttrain
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.fragmenttrain.databinding.ActivityMainBinding
 import com.example.fragmenttrain.ui.menu1.FragmentA
-import com.example.fragmenttrain.ui.menu1.FragmentB
-import com.example.fragmenttrain.ui.menu1.FragmentC
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
@@ -17,14 +14,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        supportFragmentManager.fragments
         setContentView(binding.root)
 
-        if (savedInstanceState != null) {
-            val activeFrag = (supportFragmentManager.getFragment(savedInstanceState, "activeFrag")!!)
-            setupStartScreen(activeFrag)
-
-        }else{
+        if (savedInstanceState == null) {
             setupStartScreen(FragmentA())
         }
 
@@ -35,7 +28,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.fragment_container, frag, "startFrag")
-            .addToBackStack(null)
             .commit()
     }
 
@@ -54,11 +46,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         }
     }
 
-    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
-        super.onSaveInstanceState(outState, outPersistentState)
-        val activeFrag = supportFragmentManager.findFragmentByTag("fragB")
-        supportFragmentManager.putFragment(outState, "activeFrag", activeFrag!!)
-        Log.e("onSaveInstanceState", "onSaveInstanceState called")
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.e("ups", "onDestroy")
     }
 
 }
