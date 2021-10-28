@@ -1,6 +1,7 @@
 package com.example.fragmenttrain.ui.menu1
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -30,9 +31,15 @@ class FragmentA : Fragment(R.layout.fragment_a) {
         }
 
         binding.buttonA.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("textA", binding.editTextA.text.toString())
+            val fragB = FragmentB()
+            fragB.arguments = bundle
+            Log.e("ups", "fragB bundle is: ${fragB.arguments}")
+
             parentFragmentManager
                 .beginTransaction()
-                .replace(R.id.fragment_container, FragmentB(), "fragB")
+                .replace(R.id.fragment_container, fragB, "fragB")
                 .addToBackStack(null)
                 .commit()
         }

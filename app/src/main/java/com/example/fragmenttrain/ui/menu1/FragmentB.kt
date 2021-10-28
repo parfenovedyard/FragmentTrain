@@ -22,8 +22,11 @@ class FragmentB : Fragment(R.layout.fragment_b) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.tvTextB.text = text
+        if (arguments?.isEmpty!!){
+            binding.tvTextB.text = text
+        }else {
+            binding.tvTextB.text = arguments?.getString("textA")
+        }
 
         binding.buttonBText.setOnClickListener{
             text = binding.editTextB.text.toString()
