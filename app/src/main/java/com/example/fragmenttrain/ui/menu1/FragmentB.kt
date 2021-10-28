@@ -34,7 +34,7 @@ class FragmentB : Fragment(R.layout.fragment_b) {
 
             parentFragmentManager
                 .beginTransaction()
-                .replace(R.id.fragment_container, fragC)
+                .replace(R.id.fragment_container, fragC, "fragC")
                 .addToBackStack(null)
                 .commit()
         }

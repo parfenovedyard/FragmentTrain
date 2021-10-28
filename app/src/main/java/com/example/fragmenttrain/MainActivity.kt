@@ -14,7 +14,6 @@ import com.example.fragmenttrain.ui.menu1.FragmentC
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private val binding by viewBinding(ActivityMainBinding::bind)
-    private var mActiveFrag = mutableListOf<Fragment>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +21,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         setContentView(binding.root)
 
         if (savedInstanceState != null) {
-            mActiveFrag.add(supportFragmentManager.getFragment(savedInstanceState, "activeFrag")!!)
-            setupStartScreen(mActiveFrag[mActiveFrag.size - 1])
+            val activeFrag = (supportFragmentManager.getFragment(savedInstanceState, "activeFrag")!!)
+            setupStartScreen(activeFrag)
 
         }else{
             setupStartScreen(FragmentA())
@@ -57,10 +56,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
         super.onSaveInstanceState(outState, outPersistentState)
-        //Log.e("onSaveInstanceState", "before is: ${mActiveFrag.size}")
-        val activeFrag = supportFragmentManager.fragments
-        supportFragmentManager.putFragment(outState, "activeFrag", activeFrag[activeFrag.size - 1])
-        Log.e("onSaveInstanceState", "after is: ${activeFrag.size}")
+        val activeFrag = supportFragmentManager.findFragmentByTag("fragB")
+        supportFragmentManager.putFragment(outState, "activeFrag", activeFrag!!)
+        Log.e("onSaveInstanceState", "onSaveInstanceState called")
     }
 
 }
