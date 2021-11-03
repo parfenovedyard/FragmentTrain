@@ -39,8 +39,9 @@ class FragmentA : Fragment(R.layout.fragment_a) {
 
             parentFragmentManager
                 .beginTransaction()
-                .replace(R.id.fragment_container, fragB, "fragB")
-                .addToBackStack(null)
+                .replace(R.id.fragment_start, fragB, "fragB")
+                .setReorderingAllowed(true)
+                .addToBackStack("stack1")
                 .commit()
         }
     }

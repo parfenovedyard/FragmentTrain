@@ -36,8 +36,9 @@ class FragmentB : Fragment(R.layout.fragment_b) {
         binding.buttonB.setOnClickListener {
             parentFragmentManager
                 .beginTransaction()
-                .replace(R.id.fragment_container, FragmentC(), "fragC")
-                .addToBackStack(null)
+                .replace(R.id.fragment_start, FragmentC(), "fragC")
+                .setReorderingAllowed(true)
+                .addToBackStack("stack1")
                 .commit()
         }
     }
